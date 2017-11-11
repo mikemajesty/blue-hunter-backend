@@ -6,7 +6,9 @@ router.get('/', (req, res) => {
   res.render('../index.html');
 });
 
-router.use('/user', user);
+router.get('/user', (req, res) => {
+  res.status(200).send();
+});
 
 router.use('/*', (req, res) => {
   res.status(400).send();
