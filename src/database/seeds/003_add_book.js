@@ -110,21 +110,21 @@ exports.seed = (knex, Promise) => {
 				}),
 				knex("book").insert({
 					"title": "Ex",
-					"author": knex.select('id').from('author').where('name', '=', "@aDaniels"),
+					"authorId": knex.select('id').from('author').where('name', '=', "@aDaniels"),
 					"yearPublished": 2005,
 					"price": "24.99",
 					"rating": "2.4/5"
 				}),
 				knex("book").insert({
 					"title": "Quidem Delectus",
-					"author": knex.select('id').from('author').where('name', '=', "@mHayes"),
+					"authorId": knex.select('id').from('author').where('name', '=', "@mHayes"),
 					"yearPublished": 2005,
 					"price": "20.99",
 					"rating": "4.1/5"
 				}),
 				knex("book").insert({
 					"title": "Iste Quod",
-					"author": knex.select('id').from('author').where('name', '=', "@mIngram"),
+					"authorId": knex.select('id').from('author').where('name', '=', "@mIngram"),
 					"yearPublished": 2005,
 					"price": "19.99",
 					"rating": "2/5"
