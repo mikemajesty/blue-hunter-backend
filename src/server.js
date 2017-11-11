@@ -11,8 +11,6 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/', express.static(path.join(__dirname, '../')));
-
 const knex = process.env.ENV === 'production' ?
   new Knex(knexConfig.production) : new Knex(knexConfig.development);
 
