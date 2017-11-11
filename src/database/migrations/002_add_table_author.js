@@ -1,6 +1,6 @@
-exports.up = function (knex, Promise) {
+exports.up = (knex, Promise) => {
 	return Promise.all([
-		knex.schema.createTableIfNotExists("author", function (table) {
+		knex.schema.createTableIfNotExists("author", (table) => {
 			table.increments("id").unsigned().notNullable().primary();
 			table.string("name", 120);
 			table.enu('gender', ['male', 'female', 'other', 'unknown']);
@@ -10,7 +10,7 @@ exports.up = function (knex, Promise) {
 	]);
 };
 
-exports.down = function (knex, Promise) {
+exports.down = (knex, Promise) => {
 	return Promise.all([
 		knex.schema.dropTableIfExists("author")
 	]);

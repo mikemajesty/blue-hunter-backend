@@ -1,10 +1,10 @@
-const path = require('path');
-const express = require('express');
-const bodyParser = require('body-parser');
-const pg = require('pg');
-const Model = require('objection').Model;
-const Knex = require('knex');
-const knexConfig = require('./database/knexfile');
+import path from 'path';
+import express from 'express';
+import bodyParser from 'body-parser';
+import pg from 'pg';
+import { Model } from 'objection';
+import Knex from 'knex';
+import knexConfig from './database/knexfile';
 
 const app = express();
 

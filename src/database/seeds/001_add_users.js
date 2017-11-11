@@ -1,6 +1,6 @@
-exports.seed = function (knex, Promise) {
+exports.seed = (knex, Promise) => {
 	return knex("author").count("id")
-		.then(function (result) {
+		.then((result) => {
 			if (result[0].count > 0) {
 				return;
 			}
