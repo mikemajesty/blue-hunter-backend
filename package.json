@@ -13,6 +13,11 @@
     "url": "https://github.com/mikemajesty/blue-hunter-backend.git"
   },
   "dependencies": {
-    
+    "express": "^4.16.2",
+    "body-parser": "^1.15.1",
+    "joi": "^10.6.0",
+    "knex": "^0.13.0",
+    "objection": "^0.8.7",
+    "pg": "^7.1.2"
   }
 }
