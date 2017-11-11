@@ -1,11 +1,21 @@
 import userService from "./service";
-import validator from "../validator/model/user";
+import insertValidator from "../validator/model/user/insert";
+import findValidator from "../validator/model/user/find";
 
 export const insert = (req, res, next) =>
-  validator(req.body).then(model =>
+  insertValidator(req.body).then(model =>
     userService.insert(model))
       .then(result => res.status(201).send(result))
       .catch((err) => {
-        console.log("validator user error", err);
+        console.log("Validation error", err);
+        next();
+      });
+
+export const find = (req, res, next) =>
+  findValidator({ fullName: req.params.fullName }).then(model =>
+    userService.find(model))
+      .then(result => res.status(200).send(result))
+      .catch((err) => {
+        console.log("Validation error", err);
         next();
       });
