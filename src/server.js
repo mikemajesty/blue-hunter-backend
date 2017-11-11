@@ -5,6 +5,7 @@ import pg from 'pg';
 import { Model } from 'objection';
 import Knex from 'knex';
 import knexConfig from './database/knexfile';
+import router from './services/baseRoutes';
 
 const app = express();
 
@@ -22,6 +23,8 @@ Model.knex(knex);
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 3000;
+
+app.use('/', router);
 
 app.listen(PORT, () => {
   console.log(`Server Running on ${PORT}`);
