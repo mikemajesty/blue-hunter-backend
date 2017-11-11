@@ -1,6 +1,6 @@
 import userService from "./service";
-import insertValidator from "../validator/user/insert";
-import findValidator from "../validator/user/find";
+import insertValidator from "../validator/model/book/insert";
+import findValidator from "../validator/model/book/find";
 
 export const insert = (req, res, next) =>
   insertValidator(req.body).then(model =>
@@ -12,7 +12,7 @@ export const insert = (req, res, next) =>
       });
 
 export const find = (req, res, next) =>
-  findValidator({ fullName: req.params.fullName }).then(model =>
+  findValidator({ title: req.params.title }).then(model =>
     userService.find(model))
       .then(result => res.status(200).send(result))
       .catch((err) => {

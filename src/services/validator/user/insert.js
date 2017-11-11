@@ -1,4 +1,4 @@
-import { Joi, validateAsPromise } from '../../config';
+import { Joi, validateAsPromise } from '../config';
 
 const schema = Joi.object().keys({
   fullName: Joi.string().required().max(120),
