@@ -10,18 +10,15 @@ gulp.task('server', () =>
   .pipe(gulp.dest('dist'))
 );
 
-gulp.task('nodemon', ['server'], () => {
+gulp.task('nodemon', ['server'], () =>
   nodemon({
     script: 'dist/server.js',
     exec: 'node --inspect=0.0.0.0:5858',
     watch: 'dist/**',
     stdout: true,
     delay: 2
-  });
-});
+  }));
 
-gulp.task('watch', () => {
-  gulp.watch('src/**', ['server']);
-});
+gulp.task('watch', () => gulp.watch('src/**', ['server']));
 
 gulp.task('default', ['nodemon', 'watch']);

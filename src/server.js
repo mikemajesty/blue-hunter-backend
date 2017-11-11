@@ -14,9 +14,7 @@ app.use(bodyParser.json());
 const knex = new Knex(knexConfig.development);
 
 knex.migrate.latest()
-  .then(() => {
-    return knex.seed.run();
-  });
+  .then(() => knex.seed.run());
 
 Model.knex(knex);
 
@@ -24,6 +22,4 @@ const PORT = process.env.PORT || 3000;
 
 app.use('/', router);
 
-app.listen(PORT, () => {
-  console.log(`Server Running on ${ PORT }`);
-});
+app.listen(PORT, () => console.log(`Server Running on ${ PORT }`));
