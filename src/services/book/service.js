@@ -5,24 +5,19 @@ export const insert = (book) =>
   .query()
   .insertGraph(book);
 
-
 export const find = (book) =>
   BookModel
   .query()
-  .select('id', 'title', 'yearPublished', 'price', 'rating')
-  .eager('[author]').modifyEager('author', builder => {
-    builder.select('name', 'gender', 'age', 'country');
-  })
+  .select('book.id', 'book.title', 'author.name as author', 'book.yearPublished', 'book.price', 'book.rating')
+  .join('author', 'book.authorId', 'author.id')
   .where('title', 'like', `%${book.title}%`);
 
 export const findByAuthor = (author) =>
-   BookModel
+  BookModel
   .query()
-  .select('id', 'title', 'yearPublished', 'price', 'rating')
-  .eager('[author]').modifyEager('author', builder => {
-    builder.select('name', 'gender', 'age', 'country')
-    .where('name', 'like', `%${author.name}%`)
-  })
+  .select('book.id', 'book.title', 'author.name as author', 'book.yearPublished', 'book.price', 'book.rating')
+  .join('author', 'book.authorId', 'author.id')
+  .where('author.name', 'like', `%${author.name}%`);
 
 export default {
   insert,
