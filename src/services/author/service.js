@@ -1,19 +1,10 @@
 import AuthorModel from "./model";
 
-export const insert = (user) =>
+export const insert = (book) =>
   AuthorModel
   .query()
-  .insertGraph(user);
-
-
-export const find = (user) => 
-  AuthorModel.query()
-  .where('fullName', 'like', `%${user.fullName}%`)
-  .catch(err => {
-    console.log(err.stack);
-  });
+  .insertGraph(book);
 
 export default {
-  insert,
-  find
+  insert
 };

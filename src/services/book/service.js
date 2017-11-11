@@ -15,7 +15,17 @@ export const find = (book) =>
   })
   .where('title', 'like', `%${book.title}%`);
 
+export const findByAuthor = (author) =>
+   BookModel
+  .query()
+  .select('id', 'title', 'yearPublished', 'price', 'rating')
+  .eager('[author]').modifyEager('author', builder => {
+    builder.select('name', 'gender', 'age', 'country')
+    .where('name', 'like', `%${author.name}%`)
+  })
+
 export default {
   insert,
-  find
+  find,
+  findByAuthor
 };
