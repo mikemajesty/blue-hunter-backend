@@ -8,12 +8,11 @@ class User extends BaseModel {
 	}
 
 	$beforeInsert() {
-		this.created_at = new Date();
-		this.updated_at = this.created_at;
+
 	}
 
 	$beforeUpdate() {
-		this.updated_at = new Date();
+		
 	}
 }
 
