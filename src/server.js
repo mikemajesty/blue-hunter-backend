@@ -11,7 +11,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const knex = new Knex(knexConfig.development);
+
+const knex = process.env.ENV === 'production' ?
+  new Knex(knexConfig.production) : new Knex(knexConfig.development);
 
 knex.migrate.latest()
   .then(() => knex.seed.run());
