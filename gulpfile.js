@@ -14,7 +14,7 @@ gulp.task('nodemon', ['server'], () => {
   nodemon({
     script: 'dist/server.js',
     exec: 'node --inspect=0.0.0.0:5858',
-    watch: 'dist/**/*',
+    watch: 'dist/**',
     stdout: true,
     delay: 2
   });

@@ -9,6 +9,8 @@ import router from './services/baseRoutes';
 
 const app = express();
 
+app.use(bodyParser.json());
+
 app.use('/', express.static(path.join(__dirname, '../')));
 
 const knex = new Knex(knexConfig.development);
@@ -20,12 +22,10 @@ knex.migrate.latest()
 
 Model.knex(knex);
 
-app.use(bodyParser.json());
-
 const PORT = process.env.PORT || 3000;
 
 app.use('/', router);
 
 app.listen(PORT, () => {
-  console.log(`Server Running on ${PORT}`);
+  console.log(`Server Running on ${ PORT }`);
 });

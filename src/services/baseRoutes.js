@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 router.use('/user', user);
 
 router.use('/*', (req, res) => {
-  res.status(404).send();
+  res.status(400).send();
 });
 
 module.exports = router;
