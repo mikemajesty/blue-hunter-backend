@@ -8,5 +8,4 @@ router.post("/", insert);
 
 router.use('/*', (req, res) => res.status(404).send());
 
-
 export default router;

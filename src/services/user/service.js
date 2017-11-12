@@ -5,7 +5,6 @@ export const insert = (user) =>
   .query()
   .insertGraph(user);
 
-
 export const find = (user) => 
   UserModel.query()
   .where('fullName', 'like', `%${user.fullName}%`)
