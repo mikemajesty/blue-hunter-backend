@@ -3,8 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Joi = undefined;
-exports.validateAsPromise = validateAsPromise;
+exports.validateAsPromise = exports.Joi = undefined;
 
 var _joi = require('joi');
 
@@ -14,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Joi = exports.Joi = _joi2.default;
 
-function validateAsPromise(model, schema) {
+const validateAsPromise = exports.validateAsPromise = (model, schema) => {
   return new Promise((resolve, reject) => _joi2.default.validate(model, schema, {
     abortEarly: false,
     stripUnknown: {
@@ -28,4 +27,4 @@ function validateAsPromise(model, schema) {
     });
     resolve(value);
   }));
-}
+};

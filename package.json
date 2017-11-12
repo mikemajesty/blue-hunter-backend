@@ -4,7 +4,7 @@
   "description": "Desafio se você for um Dev Backend - Blue Hunter",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test/user/test.js && mocha test/book/test.js && mocha test/author/test.js",
+    "test": "mocha test/**/*.js",
     "start": "gulp"
   },
   "author": "Mike Lima <mikee_2008@hotmail.com>",

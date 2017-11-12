@@ -2,7 +2,7 @@ import joi from 'joi';
 
 export const Joi = joi;
 
-export function validateAsPromise(model, schema) {
+export const validateAsPromise = (model, schema) => {
   return new Promise((resolve, reject) =>
     joi.validate(model, schema, {
       abortEarly: false,
