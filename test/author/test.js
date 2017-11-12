@@ -26,7 +26,7 @@ describe('GET/ livros por autor', function () {
 });
 
 describe('GET/ rota inválida para buscar livros por autor', function () {
-	it('Deveria um objeto vazio por falta do mesmo no banco de dados', function (done) {
+	it('Deveria retornar um response vazio por não atender os requisitos de aceso da API', function (done) {
 		api.get(`/book/by-author/`)
 			.expect(404)
 			.expect('Content-Type', /json/)
@@ -44,9 +44,9 @@ describe('GET/ rota inválida para buscar livros por autor', function () {
 const parametroPesquisaInvalido = 'nao-retornara-nada';
 
 describe('GET/ lista vazia de livros por autor ', function () {
-	it('Deveria retornar uma lista vazia por não existir no banco de dados', function (done) {
+	it('Deveria retornar uma lista vazia pelo filtro não existir no banco de dados', function (done) {
 		api.get(`/book/by-author/${parametroPesquisaInvalido}`)
-			.expect(404)
+			.expect(200)
 			.expect('Content-titlez', /json/)
 			.end(function (err, res) {
 				expect(res.body).to.not.be.null; 

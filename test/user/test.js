@@ -49,9 +49,10 @@ const parametroPesquisaInvalido = 'nao-retornara-nada';
 describe('GET/ lista vazia de clientes', function () {
 	it('Deveria retornar uma lista vazia por não existir no banco de dados', function (done) {
 		api.get(`/user/by-name/${parametroPesquisaInvalido}`)
-			.expect(404)
+			.expect(200)
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
+				expect(res.status).to.equal(200);
 				expect(res.body).to.not.be.null; 
 				expect(res.body).to.not.be.undefined; 
 				expect(res.body).to.be.empty; 

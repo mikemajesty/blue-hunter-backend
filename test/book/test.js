@@ -13,7 +13,8 @@ describe('GET/ livros por título', function () {
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
 				res.body.should.be.a('Array');
-				expect(res.body).not.to.be.empty; 
+				expect(res.body).not.to.be.empty;
+				expect(res.status).to.equal(200);
 				res.body[0].should.have.property('id');
 				res.body[0].should.have.property('title');
 				res.body[0].should.have.property('author');
@@ -26,7 +27,7 @@ describe('GET/ livros por título', function () {
 });
 
 describe('GET/ rota inválida para buscar livros por título', function () {
-	it('Deveria um objeto vazio por falta do mesmo no banco de dados', function (done) {
+	it('Deveria retornar um response vazio por não atender os requisitos de aceso da API', function (done) {
 		api.get(`/book/by-title/`)
 			.expect(404)
 			.expect('Content-Type', /json/)
@@ -44,10 +45,10 @@ describe('GET/ rota inválida para buscar livros por título', function () {
 const parametroPesquisaInvalido = 'nao-retornara-nada';
 
 describe('GET/ lista vazia de livros por título ', function () {
-	it('Deveria retornar uma lista vazia por não existir no banco de dados', function (done) {
+	it('Deveria retornar uma lista vazia pelo filtro não existir no banco de dados', function (done) {
 		api.get(`/book/by-title/${parametroPesquisaInvalido}`)
-			.expect(404)
-			.expect('Content-titlez', /json/)
+			.expect(200)
+			.expect('Content-Type', /json/)
 			.end(function (err, res) {
 				expect(res.body).to.not.be.null; 
 				expect(res.body).to.not.be.undefined; 
