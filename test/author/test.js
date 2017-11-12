@@ -4,16 +4,16 @@ const expect = chai.expect;
 const supertest = require('supertest');
 const api = supertest('http://localhost:3000');
 
-const parametroPesquisaValido = 'a';
+const validParameter = 'a';
 
-describe('GET/ livros por autor', function () {
-	it('Deveria retornar uma lista de livros por autor em um formato de JSON', function (done) {
-		api.get(`/book/by-author/${parametroPesquisaValido}`)
+describe('GET/ Books by author', () => {
+	it('Should return a list of books by author according to the search parameter.', (done) => {
+		api.get(`/book/by-author/${validParameter}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
 				res.body.should.be.a('Array');
-				expect(res.body).not.to.be.empty; 
+				expect(res.body).not.to.be.empty;
 				res.body[0].should.have.property('id');
 				res.body[0].should.have.property('title');
 				res.body[0].should.have.property('author');
@@ -25,15 +25,15 @@ describe('GET/ livros por autor', function () {
 	});
 });
 
-describe('GET/ rota inválida para buscar livros por autor', function () {
-	it('Deveria retornar um response vazio por não atender os requisitos de aceso da API', function (done) {
+describe('GET/ Invalid routes to search for books by author', () => {
+	it('Should return an empty response because it did not meet the API access requirements.', (done) => {
 		api.get(`/book/by-author/`)
 			.expect(404)
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
-				expect(res.body).to.not.be.null; 
-				expect(res.body).to.not.be.undefined; 
-				expect(res.body).to.be.empty; 
+				expect(res.body).to.not.be.null;
+				expect(res.body).to.not.be.undefined;
+				expect(res.body).to.be.empty;
 				res.body.should.be.a('object');
 				expect(res.status).to.equal(404);
 				done();
@@ -41,17 +41,17 @@ describe('GET/ rota inválida para buscar livros por autor', function () {
 	});
 });
 
-const parametroPesquisaInvalido = 'nao-retornara-nada';
+const invalidParameter = 'empty';
 
-describe('GET/ lista vazia de livros por autor ', function () {
-	it('Deveria retornar uma lista vazia pelo filtro não existir no banco de dados', function (done) {
-		api.get(`/book/by-author/${parametroPesquisaInvalido}`)
+describe('GET/ Empty book list by author', () => {
+	it('Should return an empty list because the filter parameter does not exist in the database.', (done) => {
+		api.get(`/book/by-author/${invalidParameter}`)
 			.expect(200)
 			.expect('Content-titlez', /json/)
 			.end(function (err, res) {
-				expect(res.body).to.not.be.null; 
-				expect(res.body).to.not.be.undefined; 
-				expect(res.body).to.be.empty; 
+				expect(res.body).to.not.be.null;
+				expect(res.body).to.not.be.undefined;
+				expect(res.body).to.be.empty;
 				res.body.should.be.a('array');
 				res.body.should.have.length(0);
 				expect(res.status).to.equal(200);

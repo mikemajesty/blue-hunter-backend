@@ -4,11 +4,11 @@ const expect = chai.expect;
 const supertest = require('supertest');
 const api = supertest('http://localhost:3000');
 
-const parametroPesquisaValido = 'a';
+const validParameter = 'a';
 
-describe('GET/ clientes por nome', function () {
-	it('Deveria retornar uma lista de clientes no formato de JSON', function (done) {
-		api.get(`/user/by-name/${parametroPesquisaValido}`)
+describe('GET/ Customers by name', function () {
+	it('Should return a list of customer by title according to the search parameter.', function (done) {
+		api.get(`/user/by-name/${validParameter}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
@@ -27,8 +27,8 @@ describe('GET/ clientes por nome', function () {
 	});
 });
 
-describe('GET/ rota inválida de clientes', function () {
-	it('Deveria retornar um response vazio por não atender os requisitos de aceso da API', function (done) {
+describe('GET/ Invalid routes to search for customer', function () {
+	it('Should return an empty response because it did not meet the API access requirements.', function (done) {
 		api.get(`/user/by-name/`)
 			.expect(404)
 			.expect('Content-Type', /json/)
@@ -43,11 +43,11 @@ describe('GET/ rota inválida de clientes', function () {
 	});
 });
 
-const parametroPesquisaInvalido = 'nao-retornara-nada';
+const invalidParameter = 'empty';
 
-describe('GET/ lista vazia de clientes', function () {
-	it('Deveria retornar uma lista vazia por não existir no banco de dados', function (done) {
-		api.get(`/user/by-name/${parametroPesquisaInvalido}`)
+describe('GET/ Empty customer list', function () {
+	it('Should return an empty list because the filter parameter does not exist in the database.', function (done) {
+		api.get(`/user/by-name/${invalidParameter}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
