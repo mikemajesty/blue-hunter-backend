@@ -1,4 +1,4 @@
-import BaseModel from "../baseModel";
+import BaseModel from "../base_model";
 import Author from "../author/model";
 import { Model } from "objection";
 

@@ -1,4 +1,4 @@
-import BaseModel from "../baseModel";
+import BaseModel from "../base_model";
 import { Model } from "objection";
 
 class User extends BaseModel {
