@@ -26,7 +26,7 @@ describe('GET/ clientes por nome', function () {
 });
 
 describe('GET/ rota invalida para clientes', function () {
-	it('Deveria retornar 404 por falta do parametro de pesquisa', function (done) {
+	it('Deveria um objeto vazio por falta do parametro de pesquisa', function (done) {
 		api.get(`/user/by-name/`)
 			.expect(404)
 			.expect()
@@ -44,7 +44,7 @@ describe('GET/ rota invalida para clientes', function () {
 const parametroPesquisaInvalido = 'ddfdfdfddf';
 
 describe('GET/ lista vazia de clientes', function () {
-	it('Deve retornar uma lista vazia por não existir no banco de dados', function (done) {
+	it('Deveria retornar uma lista vazia por não existir no banco de dados', function (done) {
 		api.get(`/user/by-name/${parametroPesquisaInvalido}`)
 			.expect(404)
 			.expect('Content-Type', /json/)
