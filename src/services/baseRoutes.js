@@ -5,9 +5,7 @@ import author from './author/route';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.sendfile('index.html');
-});
+router.get('/', (req, res) => res.status(200).send());
 
 router.use('/user', user);
 router.use('/book', book);
