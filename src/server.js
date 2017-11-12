@@ -2,15 +2,15 @@ import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 import pg from 'pg';
-import {
-  Model
-} from 'objection';
+import { Model } from 'objection';
 import Knex from 'knex';
 import knexConfig from './database/knexfile';
 import routes from './services/base_routes';
+import cors from 'cors';
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 const knex = process.env.ENV === 'production' ?

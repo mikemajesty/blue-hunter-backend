@@ -14,8 +14,9 @@
     "url": "https://github.com/mikemajesty/blue-hunter-backend.git"
   },
   "dependencies": {
-    "express": "4.14.0",
     "body-parser": "^1.15.1",
+    "cors": "^2.8.4",
+    "express": "4.14.0",
     "joi": "^10.6.0",
     "knex": "^0.13.0",
     "objection": "^0.8.7",
