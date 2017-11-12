@@ -13,7 +13,7 @@ describe('GET/ clientes por nome', function () {
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
 				res.body.should.be.a('Array');
-				expect(res.body).not.to.be.empty; 
+				expect(res.body).not.to.be.empty;
 				res.body[0].should.have.property('id');
 				res.body[0].should.have.property('fullName');
 				res.body[0].should.have.property('gender');
@@ -28,15 +28,14 @@ describe('GET/ clientes por nome', function () {
 });
 
 describe('GET/ rota inválida de clientes', function () {
-	it('Deveria um objeto vazio por falta do mesmo no banco de dados', function (done) {
+	it('Deveria retornar um response vazio por não atender os requisitos de aceso da API', function (done) {
 		api.get(`/user/by-name/`)
 			.expect(404)
-			.expect()
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
-				expect(res.body).to.not.be.null; 
-				expect(res.body).to.not.be.undefined; 
-				expect(res.body).to.be.empty; 
+				expect(res.body).to.not.be.null;
+				expect(res.body).to.not.be.undefined;
+				expect(res.body).to.be.empty;
 				expect(res.status).to.equal(404);
 				res.body.should.be.a('object');
 				done();
@@ -53,9 +52,9 @@ describe('GET/ lista vazia de clientes', function () {
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
 				expect(res.status).to.equal(200);
-				expect(res.body).to.not.be.null; 
-				expect(res.body).to.not.be.undefined; 
-				expect(res.body).to.be.empty; 
+				expect(res.body).to.not.be.null;
+				expect(res.body).to.not.be.undefined;
+				expect(res.body).to.be.empty;
 				res.body.should.be.a('array');
 				res.body.should.have.length(0);
 				expect(res.status).to.equal(200);

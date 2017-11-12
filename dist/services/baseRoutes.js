@@ -20,8 +20,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const router = _express2.default.Router();
 
-
-router.get('/', (req, res) => res.status(200).send());
+router.get('/', (req, res) => {
+  res.sendfile('index.html');
+});
 
 router.use('/user', _route2.default);
 router.use('/book', _route4.default);

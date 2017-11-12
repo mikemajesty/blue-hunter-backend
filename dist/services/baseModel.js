@@ -12,12 +12,8 @@ class BaseModel extends _objection.Model {
     return this.$toJson(true, omit, null);
   }
 
-  $beforeInsert() {
-    this.created_at = new Date();
-    this.updated_at = this.created_at;
-  }
-  $beforeUpdate() {
-    this.updated_at = new Date();
-  }
+  $beforeInsert() {}
+
+  $beforeUpdate() {}
 }
 exports.default = BaseModel;
