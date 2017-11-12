@@ -6,9 +6,9 @@ const api = supertest('http://localhost:3000');
 
 const parametroPesquisaValido = 'a';
 
-describe('GET/ livros por autor', function () {
-	it('Deveria retornar uma lista de livros por autor em um formato de JSON', function (done) {
-		api.get(`/book/by-author/${parametroPesquisaValido}`)
+describe('GET/ livros por título', function () {
+	it('Deveria retornar uma lista de livros por título em um formato de JSON', function (done) {
+		api.get(`/book/by-title/${parametroPesquisaValido}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
@@ -25,9 +25,9 @@ describe('GET/ livros por autor', function () {
 	});
 });
 
-describe('GET/ rota inválida para buscar livros por autor', function () {
+describe('GET/ rota inválida para buscar livros por título', function () {
 	it('Deveria um objeto vazio por falta do mesmo no banco de dados', function (done) {
-		api.get(`/book/by-author/`)
+		api.get(`/book/by-title/`)
 			.expect(404)
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
@@ -43,9 +43,9 @@ describe('GET/ rota inválida para buscar livros por autor', function () {
 
 const parametroPesquisaInvalido = 'nao-retornara-nada';
 
-describe('GET/ lista vazia de livros por autor ', function () {
+describe('GET/ lista vazia de livros por título ', function () {
 	it('Deveria retornar uma lista vazia por não existir no banco de dados', function (done) {
-		api.get(`/book/by-author/${parametroPesquisaInvalido}`)
+		api.get(`/book/by-title/${parametroPesquisaInvalido}`)
 			.expect(404)
 			.expect('Content-titlez', /json/)
 			.end(function (err, res) {

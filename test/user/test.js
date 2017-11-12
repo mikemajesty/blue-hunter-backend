@@ -6,36 +6,39 @@ const api = supertest('http://localhost:3000');
 
 const parametroPesquisaValido = 'a';
 
-describe('GET/ livros por autor', function () {
-	it('Deveria retornar uma lista de livros por autor em um formato de JSON', function (done) {
-		api.get(`/book/by-author/${parametroPesquisaValido}`)
+describe('GET/ clientes por nome', function () {
+	it('Deveria retornar uma lista de clientes no formato de JSON', function (done) {
+		api.get(`/user/by-name/${parametroPesquisaValido}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
 				res.body.should.be.a('Array');
 				expect(res.body).not.to.be.empty; 
 				res.body[0].should.have.property('id');
-				res.body[0].should.have.property('title');
-				res.body[0].should.have.property('author');
-				res.body[0].should.have.property('yearPublished');
-				res.body[0].should.have.property('price');
-				res.body[0].should.have.property('rating');
+				res.body[0].should.have.property('fullName');
+				res.body[0].should.have.property('gender');
+				res.body[0].should.have.property('age');
+				res.body[0].should.have.property('email');
+				res.body[0].should.have.property('phone');
+				res.body[0].should.have.property('username');
+				expect(res.status).to.equal(200);
 				done();
 			});
 	});
 });
 
-describe('GET/ rota inválida para buscar livros por autor', function () {
+describe('GET/ rota inválida de clientes', function () {
 	it('Deveria um objeto vazio por falta do mesmo no banco de dados', function (done) {
-		api.get(`/book/by-author/`)
+		api.get(`/user/by-name/`)
 			.expect(404)
+			.expect()
 			.expect('Content-Type', /json/)
 			.end(function (err, res) {
 				expect(res.body).to.not.be.null; 
 				expect(res.body).to.not.be.undefined; 
 				expect(res.body).to.be.empty; 
-				res.body.should.be.a('object');
 				expect(res.status).to.equal(404);
+				res.body.should.be.a('object');
 				done();
 			});
 	});
@@ -43,11 +46,11 @@ describe('GET/ rota inválida para buscar livros por autor', function () {
 
 const parametroPesquisaInvalido = 'nao-retornara-nada';
 
-describe('GET/ lista vazia de livros por autor ', function () {
+describe('GET/ lista vazia de clientes', function () {
 	it('Deveria retornar uma lista vazia por não existir no banco de dados', function (done) {
-		api.get(`/book/by-author/${parametroPesquisaInvalido}`)
+		api.get(`/user/by-name/${parametroPesquisaInvalido}`)
 			.expect(404)
-			.expect('Content-titlez', /json/)
+			.expect('Content-Type', /json/)
 			.end(function (err, res) {
 				expect(res.body).to.not.be.null; 
 				expect(res.body).to.not.be.undefined; 
