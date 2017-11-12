@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Desafio se você for um Dev Backend - Blue Hunter",
   "main": "server.js",
-  "scripts": {},
+  "scripts": {
+    "test": "mocha test/user/test.js && mocha test/book/test.js && mocha test/author/test.js",
+    "start": "gulp"
+  },
   "author": "Mike Lima <mikee_2008@hotmail.com>",
   "license": "MIT",
   "repository": {
