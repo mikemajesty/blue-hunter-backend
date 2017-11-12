@@ -6,12 +6,12 @@ const api = supertest('http://localhost:3000');
 
 const validParameter = 'a';
 
-describe('GET/ Customers by name', function () {
-	it('Should return a list of customer by title according to the search parameter.', function (done) {
+describe('GET/ Customers by name', () => {
+	it('Should return a list of customer by title according to the search parameter.', (done) => {
 		api.get(`/user/by-name/${validParameter}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
-			.end(function (err, res) {
+			.end((err, res) => {
 				res.body.should.be.a('Array');
 				expect(res.body).not.to.be.empty;
 				res.body[0].should.have.property('id');
@@ -27,12 +27,12 @@ describe('GET/ Customers by name', function () {
 	});
 });
 
-describe('GET/ Invalid routes to search for customer', function () {
-	it('Should return an empty response because it did not meet the API access requirements.', function (done) {
+describe('GET/ Invalid routes to search for customer', () => {
+	it('Should return an empty response because it did not meet the API access requirements.', (done) => {
 		api.get(`/user/by-name/`)
 			.expect(404)
 			.expect('Content-Type', /json/)
-			.end(function (err, res) {
+			.end((err, res) => {
 				expect(res.body).to.not.be.null;
 				expect(res.body).to.not.be.undefined;
 				expect(res.body).to.be.empty;
@@ -45,12 +45,12 @@ describe('GET/ Invalid routes to search for customer', function () {
 
 const invalidParameter = 'empty';
 
-describe('GET/ Empty customer list', function () {
-	it('Should return an empty list because the filter parameter does not exist in the database.', function (done) {
+describe('GET/ Empty customer list', () => {
+	it('Should return an empty list because the filter parameter does not exist in the database.', (done) => {
 		api.get(`/user/by-name/${invalidParameter}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
-			.end(function (err, res) {
+			.end((err, res) => {
 				expect(res.status).to.equal(200);
 				expect(res.body).to.not.be.null;
 				expect(res.body).to.not.be.undefined;

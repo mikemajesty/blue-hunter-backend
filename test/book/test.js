@@ -11,7 +11,7 @@ describe('GET/ Books by title', () => {
 		api.get(`/book/by-title/${validParameter}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
-			.end(function (err, res) {
+			.end((err, res) => {
 				res.body.should.be.a('Array');
 				expect(res.body).not.to.be.empty;
 				expect(res.status).to.equal(200);
@@ -31,7 +31,7 @@ describe('GET/ Invalid routes to search for books by title', () => {
 		api.get(`/book/by-title/`)
 			.expect(404)
 			.expect('Content-Type', /json/)
-			.end(function (err, res) {
+			.end((err, res) => {
 				expect(res.body).to.not.be.null; 
 				expect(res.body).to.not.be.undefined; 
 				expect(res.body).to.be.empty; 
@@ -49,7 +49,7 @@ describe('GET/ Empty book list by title', () => {
 		api.get(`/book/by-title/${invalidParameter}`)
 			.expect(200)
 			.expect('Content-Type', /json/)
-			.end(function (err, res) {
+			.end((err, res) => {
 				expect(res.body).to.not.be.null; 
 				expect(res.body).to.not.be.undefined; 
 				expect(res.body).to.be.empty; 
