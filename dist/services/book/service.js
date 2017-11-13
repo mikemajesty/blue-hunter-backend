@@ -13,9 +13,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const insert = exports.insert = book => _model2.default.query().insertGraph(book);
 
-const find = exports.find = book => _model2.default.query().select('book.id', 'book.title', 'author.name as author', 'book.yearPublished', 'book.price', 'book.rating').join('author', 'book.authorId', 'author.id').where('title', 'like', `%${book.title}%`);
+const find = exports.find = book => _model2.default.query().select('book.id', 'book.title', 'author.name as author', 'book.yearPublished', 'book.price', 'book.rating', 'book.img').join('author', 'book.authorId', 'author.id').where('title', 'like', `%${book.title}%`);
 
-const findByAuthor = exports.findByAuthor = author => _model2.default.query().select('book.id', 'book.title', 'author.name as author', 'book.yearPublished', 'book.price', 'book.rating').join('author', 'book.authorId', 'author.id').where('author.name', 'like', `%${author.name}%`);
+const findByAuthor = exports.findByAuthor = author => _model2.default.query().select('book.id', 'book.title', 'author.name as author', 'book.yearPublished', 'book.price', 'book.rating', 'book.img').join('author', 'book.authorId', 'author.id').where('author.name', 'like', `%${author.name}%`);
 
 exports.default = {
   insert: insert,
