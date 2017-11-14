@@ -1,4 +1,5 @@
 import BookModel from "./model";
+import AuthorModel from "../author/model";
 
 export const insert = (book) =>
   BookModel
@@ -10,14 +11,14 @@ export const find = (book) =>
   .query()
   .select('book.id', 'book.title', 'author.name as author', 'book.yearPublished', 'book.price', 'book.rating', 'book.img')
   .join('author', 'book.authorId', 'author.id')
-  .where('title', 'like', `%${book.title}%`);
+  .where(BookModel.raw('lower("title")'), 'like', `%${book.title.toLowerCase()}%`);
 
 export const findByAuthor = (author) =>
   BookModel
   .query()
   .select('book.id', 'book.title', 'author.name as author', 'book.yearPublished', 'book.price', 'book.rating', 'book.img')
   .join('author', 'book.authorId', 'author.id')
-  .where('author.name', 'like', `%${author.name}%`);
+  .where(AuthorModel.raw('lower("name")'), 'like', `%${author.name.toLowerCase()}%`);
 
 export default {
   insert,

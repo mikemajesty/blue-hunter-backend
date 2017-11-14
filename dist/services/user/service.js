@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const insert = exports.insert = user => _model2.default.query().insertGraph(user);
 
-const find = exports.find = user => _model2.default.query().where('fullName', 'like', `%${user.fullName}%`).catch(err => {
+const find = exports.find = user => _model2.default.query().where(_model2.default.raw('lower("fullName")'), 'like', `%${user.fullName.toLowerCase()}%`).catch(err => {
   console.log(err.stack);
 });
 

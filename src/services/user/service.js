@@ -7,7 +7,7 @@ export const insert = (user) =>
 
 export const find = (user) => 
   UserModel.query()
-  .where('fullName', 'like', `%${user.fullName}%`)
+  .where(UserModel.raw('lower("fullName")'), 'like', `%${user.fullName.toLowerCase()}%`)
   .catch(err => {
     console.log(err.stack);
   });
