@@ -22,11 +22,11 @@
     "knex": "^0.13.0",
     "objection": "^0.8.7",
     "pg": "^7.1.2",
-     "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "babel-preset-es2015-node5": "^1.2.0"
   },
   "devDependencies": {
-    "babel-preset-es2015-node5": "^1.2.0",
-    "gulp-babel": "^6.1.2",
     "gulp-nodemon": "^2.2.1",
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
