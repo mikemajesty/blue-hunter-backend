@@ -22,7 +22,7 @@
 * <b>[Gulp](https://github.com/gulpjs/gulp)</b> para automatizar o deploy, build e compilar o projeto para ES6.
 
 #### <b>Plataforma de serviço em nuvem </b>
-* <b>[Heroku](https://github.com/heroku)</b> *Heroku* pela sua simplicidade, ótima documentação e pela consolidação da marca no mercado.
+* <b>[Heroku](https://github.com/heroku)</b> Pela sua simplicidade, ótima documentação e pela consolidação da marca no mercado.
 
 #### <b>Acesso a dados</b> 
 * <b>[Objection](https://github.com/Vincit/objection.js/)</b> ORM, simples de configurar e realizar operações transacionais.
