@@ -35,3 +35,4 @@
 #### <b>Testes</b> 
 * <b>[Chai](https://github.com/chaijs/chai)</b>
 * <b>[supertest](https://github.com/visionmedia/supertest)</b>
+* <b>[Mocha](https://github.com/mochajs/mocha)</b>
