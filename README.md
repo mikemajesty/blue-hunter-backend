@@ -12,7 +12,7 @@
 
 ### Realizar Deploy
 ```npm run start```
-##### Após executar o comando acima e fazer o push para o repositório do github o deploy é executado de forma automática, conforme o gif abaixo.
+##### Após executar o comando acima é fazer o push para o repositório do github o deploy é executado de forma automática, conforme o gif abaixo.
 [![deploy.gif](https://s33.postimg.org/qtc509tzz/deploy.gif)](https://postimg.org/image/oc0dt0a3f/)
 
 ### Realizar Build
@@ -24,7 +24,7 @@
 * <b>[Gulp](https://github.com/gulpjs/gulp)</b> para automatizar o deploy, build e compilar o projeto para ES6.
 
 #### <b>Plataforma de serviço em nuvem </b>
-* <b>[Heroku](https://github.com/heroku)</b> Tenho muitas aplicações no heroku, uma dos motivos da escolha e que para automatizar o deploy basta clicar em 2 botões. 
+* <b>[Heroku](https://github.com/heroku)</b> Tenho muitas aplicações no heroku, uma dos motivos da escolha é que para automatizar o deploy basta clicar em 2 botões. 
 
 #### <b>Acesso a dados</b> 
 * <b>[Objection](https://github.com/Vincit/objection.js/)</b> ORM muito simples de configurar, já utilizei algumas como o sequelize, mas penso que o Objection é mais simples de usar e menos verboso.
