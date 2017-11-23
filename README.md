@@ -35,7 +35,7 @@
 * <b>[Joi](https://github.com/hapijs/joi)</b> Validador de objetos muito simples de utilizar, minha experiência fez a diferença na escolha também.
 
 #### <b>Testes</b> 
-#### Combinação muito simples para testes, e a unica que tenho experiência profissional.  
+#### Combinação muito simples para testes, e a única que tenho experiência profissional.  
 * <b>[Chai](https://github.com/chaijs/chai)</b>
 * <b>[supertest](https://github.com/visionmedia/supertest)</b>
 * <b>[Mocha](https://github.com/mochajs/mocha)</b>
