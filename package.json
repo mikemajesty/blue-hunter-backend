@@ -1,10 +1,9 @@
 {
-  "name": "blue-hunter-beckend",
+  "name": "extract-image-api",
   "version": "1.0.0",
-  "description": "Desafio se você for um Dev Backend - Blue Hunter",
+  "description": "App to extract image of market places",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test/**/*.js",
     "start": "gulp",
     "postinstall": "gulp"
   },
@@ -12,24 +11,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mikemajesty/blue-hunter-backend.git"
+    "url": "https://github.com/mikemajesty/extract-image-api.git"
   },
   "dependencies": {
+    "babel-preset-es2015-node5": "^1.2.0",
     "body-parser": "^1.15.1",
     "cors": "^2.8.4",
     "express": "4.14.0",
-    "joi": "^10.6.0",
-    "knex": "^0.13.0",
-    "objection": "^0.8.7",
-    "pg": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "babel-preset-es2015-node5": "^1.2.0",
-    "gulp-nodemon": "^2.2.1"
+    "gulp-nodemon": "^2.2.1",
+    "natives": "^1.1.6",
+    "pg": "^7.1.2"
   },
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^4.0.1",
-    "supertest": "^3.0.0"
-  }
+  "devDependencies": {}
 }
