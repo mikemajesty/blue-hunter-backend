@@ -1,10 +1,10 @@
 import express from "express";
 
-import { extract } from "./action";
+import { insert } from "./action";
 
 const router = express.Router();
 
-router.use("/", extract);
+router.post("/", insert);
 
 router.use('/*', (req, res) => res.status(404).send());
 
